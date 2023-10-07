@@ -9,15 +9,14 @@ body {
 }
 
 .header, .footer {
-    background-color: rgb(70, 70, 70)
 }
 
 .content {
-    background-color: azure;
-
+    background-size:cover;
     display: grid;
     grid-template-rows: 2fr 3fr;
-}
+
+   }
 
 .todayWeather {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -27,7 +26,10 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    background: rgba(25, 25, 25, 0.5);
+    padding: 10px;
+    border-radius: 15px;
+    
 }
 
 .todayWeather>.location {
@@ -43,6 +45,10 @@ body {
 }
 
 .today {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -60,7 +66,6 @@ body {
 }
 
 .sevenDayForecast {
-    background-color: rgb(22, 22, 22);
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     justify-items: center;
@@ -77,6 +82,8 @@ body {
     height: min-content;
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: rgba(25, 25, 25, 0.5);
+    border-radius: 20px;
 }
 
 .sevenDayForecast>div>.day {
@@ -89,8 +96,32 @@ body {
 
 .sevenDayForecast>div>.temp>.high {
     font-size: 1.2em;
+    padding-right: 10px;
 }
 
 .sevenDayForecast>div>.temp>.low {
     font-size: 1.2em;
+    padding-left: 10px;
+}
+
+.sevenDayForecast>div>.temp {
+    display: flex;
+
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer {
+    color: greenyellow;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.search {
 }
