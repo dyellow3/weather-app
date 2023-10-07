@@ -95,7 +95,8 @@ function displayForecast(weather) {
         const high = document.querySelector(`.day${i} .temp .high`)
         const low = document.querySelector(`.day${i} .temp .low`)
         day.innerHTML = (i == 1) ? "Today" : format(currDate, 'cccc')
-        conditionPicture.src = (weather.forecast.forecastday[`${i - 1}`].day.condition.icon)
+        console.log(weather)
+        conditionPicture.src = "https://" + (weather.forecast.forecastday[`${i - 1}`].day.condition.icon).replace(/^\/\//, '')
 
         condition.innerHTML = weather.forecast.forecastday[`${i - 1}`].day.condition.text
         high.innerHTML = "H:" + weather.forecast.forecastday[`${i - 1}`].day.maxtemp_f

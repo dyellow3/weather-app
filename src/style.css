@@ -1,22 +1,19 @@
 body {
     display: grid;
     height: 100vh;
-    
+    background-size:cover;
+
     grid-template-rows: 50px 1fr 50px;
     width: 100%;
     padding: 0;
     margin: 0;
 }
 
-.header, .footer {
-}
 
 .content {
-    background-size:cover;
     display: grid;
     grid-template-rows: 2fr 3fr;
-
-   }
+}
 
 .todayWeather {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -29,7 +26,7 @@ body {
     background: rgba(25, 25, 25, 0.5);
     padding: 10px;
     border-radius: 15px;
-    
+
 }
 
 .todayWeather>.location {
@@ -123,5 +120,4 @@ body {
     align-items: flex-end;
 }
 
-.search {
-}
+.search {}
