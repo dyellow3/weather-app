@@ -1,23 +1,6 @@
 import { add, format, fromUnixTime } from "date-fns"
 import './style.css';
-import { createClient } from "pexels";
 
-async function getWeather(location) {
-    try {
-        const response = await fetch('https://api.weatherapi.com/v1/current.json?key=b902dc0665b84c099e000044233009&q=' + location, { mode: 'cors' })
-
-        if (!response.ok) {
-            console.error(`Error fetching data for location: ${location}$`)
-            return null
-        }
-
-        const data = await response.json()
-        return data
-    }
-    catch (error) {
-        console.error(`Error occurred for location: ${location}`, error);
-    }
-}
 
 async function getForecast(location) {
     try {
@@ -37,7 +20,6 @@ async function getForecast(location) {
 }
 
 async function getImage(query) {
-    const client = createClient('mYHFfU8IsZio6IHAq9IQcZHAkn7okTtTDvyoOKmeyxbXctiVLw4w1Gdd');
     const settings = {
         method: 'GET',
         headers: {
@@ -77,7 +59,6 @@ async function displayTodaysWeather(currWeather) {
     const today = document.querySelector('body')
     const query = `${currWeather.current.condition.text} sky$`
     const img = await getImage(query)
-    const footer = document.querySelector('.footer') 
     if (img) {
         today.style.backgroundImage = `url(${img[0]})`
         const photographer = document.querySelector('.photographer') 
@@ -87,7 +68,7 @@ async function displayTodaysWeather(currWeather) {
 }
 function displayForecast(weather) {
     let today = fromUnixTime(Date.now() / 1000)
-    for (let i = 1; i < 8; i++) {
+    for (let i = 1; i < 4; i++) {
         const currDate = add(new Date(today), { days: i - 1 })
         const day = document.querySelector(`.day${i} .day`)
         const conditionPicture = document.querySelector(`.day${i} .conditionPicture`)
@@ -120,4 +101,4 @@ form.addEventListener('submit', function(event) {
     driver(search.value)
 })
 
-driver('london')
+driver('phoenix')
